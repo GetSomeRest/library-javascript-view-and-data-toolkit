@@ -8,7 +8,8 @@ Update to v1.2.17   - August 5th, 2015
 
 This sample contains JavaScript libraries providing high level wrappers and features for the Autodesk View & Data API:
 
-- view-and-data-client.js
+- view-and-data-client-v1.js (for OSS API v1)
+- view-and-data-client-v1.js (for OSS API v2 - not available publicly yet)
 
 Provides a high-level wrapper to work with the View & Data REST API:
 

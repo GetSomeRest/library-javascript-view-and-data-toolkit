@@ -11,18 +11,22 @@ This sample contains JavaScript libraries providing high level wrappers and feat
 - view-and-data-client-v1.js (for OSS API v1)
 - view-and-data-client-v2.js (for OSS API v2 - not available publicly yet)
 
-Provides a high-level wrapper to work with the View & Data REST API:
+    Provides a high-level wrapper to work with the View & Data REST API:
 
-- Check existence of a bucket/Retrieve details of bucket
-- Create new bucket
-- Upload a file to bucket
-- Register file for translation
-- Check translation progress
-- Retrieve viewable details
+    - Check existence of a bucket/Retrieve details of bucket
+    - Create new bucket
+    - Upload a file to bucket
+    - Register file for translation
+    - Check translation progress
+    - Retrieve viewable details
 
-##Viewer.js
+- viewer.js
 
 Provides a high-level wrapper to work with the viewer client-side JavaScript API
+
+##Installation
+
+bower install view-and-data-toolkit
 
 ##Dependencies
 

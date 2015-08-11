@@ -1,5 +1,9 @@
 {
   "name": "view-and-data-toolkit",
+  "main": [
+    "dist/js/view-and-data-client.min.js",
+    "dist/js/viewer.min.js"
+  ],
   "version": "1.0.0",
   "homepage": "https://github.com/Developer-Autodesk/library-javascript-view-and-data-toolkit",
   "authors": [

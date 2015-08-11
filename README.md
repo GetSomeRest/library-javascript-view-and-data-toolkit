@@ -9,18 +9,18 @@ Update to v1.2.17   - August 5th, 2015
 This sample contains JavaScript libraries providing high level wrappers and features for the Autodesk View & Data API:
 
 - view-and-data-client-v1.js (for OSS API v1)
-- view-and-data-client-v1.js (for OSS API v2 - not available publicly yet)
+- view-and-data-client-v2.js (for OSS API v2 - not available publicly yet)
 
 Provides a high-level wrapper to work with the View & Data REST API:
 
-    * Check existence of a bucket/Retrieve details of bucket
-    * Create new bucket
-    * Upload a file to bucket
-    * Register file for translation
-    * Check translation progress
-    * Retrieve viewable details
+- Check existence of a bucket/Retrieve details of bucket
+- Create new bucket
+- Upload a file to bucket
+- Register file for translation
+- Check translation progress
+- Retrieve viewable details
 
-- viewer.js
+##Viewer.js
 
 Provides a high-level wrapper to work with the viewer client-side JavaScript API
 
@@ -28,7 +28,7 @@ Provides a high-level wrapper to work with the viewer client-side JavaScript API
 
 None
 
-##Setup/Usage Instructions
+##Setup and Usage Instructions
 
 * Include relevant js files in your html project
 * See html sample files for example on how to use the libs:

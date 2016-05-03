@@ -2,10 +2,10 @@
 
 [![LMV](https://img.shields.io/badge/View%20%26%20Data%20API-v1.2.17-green.svg)](http://developer-autodesk.github.io/)
 
-This sample is retired, it is not maintained any more. It is provided as-is and we discourage using it in your production code.
+*This sample is retired, it is not maintained anymore.* It is provided as-is and we discourage using it in your production code.
 If you are using Node.js, take a look at the [View and Data NPM Package](https://github.com/Developer-Autodesk/view-and-data-npm) for a supported wrapper of the OSS API.
 
-If it is for client side, we recommend you do not use any wrapper around the viewer API and keep things as simple as possible. We also recommend you perform OSS-related operation on your backend and expose to your client only minimal required API's.
+If it is for client side, we recommend you do not use any wrapper around the viewer API and keep things as simple as possible. We also recommend you perform OSS-related operations on your backend and expose to your client only minimal required API's.
 
 ##Description
 

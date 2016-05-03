@@ -30,6 +30,8 @@ Autodesk.ADN.Toolkit.Viewer.ViewerFactory = function (
     tokenOrUrl,
     factoryConfig) {
 
+    factoryConfig = factoryConfig || {};
+
     var _initialized = false;
 
     var _onInitialized = null;
@@ -63,20 +65,6 @@ Autodesk.ADN.Toolkit.Viewer.ViewerFactory = function (
     };
 
     ///////////////////////////////////////////////////////////////////////////
-    // Gets object property by name, returning default if prop doesnt exist
-    //
-    ///////////////////////////////////////////////////////////////////////////
-    function getPropertyWithDefault(object, propName, defaultValue) {
-
-        if (object && object.hasOwnProperty(propName)) {
-
-            return object[propName];
-        }
-
-        return defaultValue;
-    }
-
-    ///////////////////////////////////////////////////////////////////////////
     // Initializes options
     //
     ///////////////////////////////////////////////////////////////////////////
@@ -84,10 +72,7 @@ Autodesk.ADN.Toolkit.Viewer.ViewerFactory = function (
 
         var options = {
 
-            env: getPropertyWithDefault(
-                factoryConfig,
-                'environment',
-                'AutodeskProduction')
+            env: factoryConfig.environment || 'AutodeskProduction'
         };
 
         // initialized with getToken callback
@@ -230,11 +215,7 @@ Autodesk.ADN.Toolkit.Viewer.ViewerFactory = function (
     ///////////////////////////////////////////////////////////////////////////
     function createViewerDiv(container) {
 
-        var id = guid();
-
         var viewerDiv = document.createElement("div");
-
-        viewerDiv.id = id;
 
         viewerDiv.style.height = "100%";
 
@@ -273,11 +254,31 @@ Autodesk.ADN.Toolkit.Viewer.ViewerFactory = function (
     ///////////////////////////////////////////////////////////////////////////
     this.createViewer = function (container, viewerConfig) {
 
+        viewerConfig = viewerConfig || {};
+
+        viewerConfig.viewerType =
+          viewerConfig.viewerType || 'GuiViewer3D';
+
+        viewerConfig.progressiveRendering =
+          viewerConfig.progressiveRendering || true;
+
+        viewerConfig.qualityLevel =
+          viewerConfig.qualityLevel || [true, true];
+
+        viewerConfig.lightPreset =
+          viewerConfig.lightPreset || 8;
+
+        viewerConfig.backgroundColor =
+          viewerConfig.backgroundColor || [3,4,5, 250, 250, 250];
+
+        viewerConfig.navigationTool =
+          viewerConfig.navigationTool || 'freeorbit';
+
         var viewer = null;
 
         var viewerDiv = createViewerDiv(container);
 
-        switch(getPropertyWithDefault(viewerConfig, 'viewerType', 'GuiViewer3D')) {
+        switch(viewerConfig.viewerType) {
 
             case 'GuiViewer3D':
                 viewer = new Autodesk.Viewing.Private.GuiViewer3D(
@@ -302,40 +303,24 @@ Autodesk.ADN.Toolkit.Viewer.ViewerFactory = function (
         viewer.start();
 
         viewer.setProgressiveRendering(
-            getPropertyWithDefault(
-                viewerConfig,
-                'progressiveRendering',
-                true));
-
-        var qualityLevel = getPropertyWithDefault(
-            viewerConfig,
-            'qualityLevel',
-            [true, true]);
+          viewerConfig.progressiveRendering);
 
         viewer.setQualityLevel(
-            qualityLevel[0],
-            qualityLevel[1]);
+          viewerConfig.qualityLevel[0],
+          viewerConfig.qualityLevel[1]);
 
         viewer.impl.setLightPreset(
-            getPropertyWithDefault(
-                viewerConfig,
-                'lightPreset', 8)
-        );
+          viewerConfig.lightPreset);
 
-        var bkColor = getPropertyWithDefault(
-            viewerConfig,
-            'backgroundColor',
-            [3,4,5, 250, 250, 250]);
+        var bkColor =
+          viewerConfig.backgroundColor;
 
         viewer.setBackgroundColor(
             bkColor[0], bkColor[1], bkColor[2],
             bkColor[3], bkColor[4], bkColor[5]);
 
         viewer.setDefaultNavigationTool(
-            getPropertyWithDefault(
-                viewerConfig,
-                'navigationTool',
-                'freeorbit'));
+          viewerConfig.navigationTool);
 
         viewer.addEventListener(
 
